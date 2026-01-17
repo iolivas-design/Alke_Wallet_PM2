@@ -31,14 +31,11 @@ Este repositorio forma parte de una entrega o entrega parcial dentro de la forma
 El repositorio contiene los siguientes archivos y carpetas:
 
 .
-├── index2.html                 # Página principal / home
-├── login.html / login2.html    # Páginas de inicio de sesión
+├── login.html                  # Páginas de inicio de sesión
 ├── menu.html                   # Menú de navegación principal
 ├── sendmoney.html              # Página para realizar envíos
 ├── transactions.html           # Historial de operaciones
-├── wallet.html                 # Vista de billetera / saldo
 ├── deposit.html                # Página relacionada con depósitos
-├── script.js                   # Lógica JavaScript compartida
 ├── alkemy-logo.webp            # Imagen o logo del proyecto
 └── README.md                   # Documentación del proyecto
 
