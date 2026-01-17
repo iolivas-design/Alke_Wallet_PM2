@@ -3,36 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <title>Wallet - Últimos Movimientos</title>
-  <style>
-    body {
-      padding: 20px;
-      background-image: url("https://get.pxhere.com/photo/wallet-leather-textile-fashion-accessory-zipper-Material-property-font-coin-purse-hair-accessory-denim-1606587.jpg");
-      background-size: 500px;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: #cccccc;
-    }
+    <title>Wallet - Historial de Operaciones</title>
 
-    .container {
-      max-width: 400px;
-      margin: 0 auto;
-    }
-  </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <style>
+        body {
+            width: 500px;
+            background-color: #5c8bb9;
+            margin: 0 auto;
+            padding-top: 10px;
+        }
+        .login-card {
+            max-width: 420px;
+            margin: 60px auto;
+            padding: 20px;
+            background: #94b9ff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,.36);
+        }
+    </style>
+
+    <script src="https://kit.fontawesome.com/2e604df97d.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="container bg-light p-3 rounded-3 bg-opacity-75">
-    <h2>Últimos Movimientos</h2>
-    <ul class="list-group">
-      <li class="list-group-item">Compra en línea - $50.00</li>
-      <li class="list-group-item">Depósito - $100.00</li>
-      <li class="list-group-item">Transferencia recibida - $75.00</li>
-      <li class="list-group-item">Compra en línea - $5550.00</li>
-      <li class="list-group-item">Depósito misma cuenta - $10500.00</li>
-      <li class="list-group-item">Transferencia recibida - $7575.00</li>
-    </ul>
-    <a href="menu.html" class="btn btn-secondary">Volver al Menú Principal</a>
-  </div>
+
+<header>
+    <div class="container">
+        <nav class="navbar navbar-expand bg-white">
+            <a class="navbar-brand">
+                <img src="LogoAlkeWallet.png" width="30" height="24">
+                <strong>Alke Wallet</strong>
+            </a>
+            <a href="menu.html" class="navbar-text font-weight-bold ml-auto">
+                Volver Menú Principal
+            </a>
+        </nav>
+    </div>
+</header>
+
+<div class="container" style="display:flex;">
+    <div class="login-card">
+
+        <h3 class="text-center mb-4">Historial de Operaciones</h3>
+
+        <!-- Filtro -->
+        <div class="form-group">
+            <label>Filtrar por tipo</label>
+            <select id="filtroTipo" class="form-control">
+                <option value="">Todas</option>
+                <option value="Deposito">Depósito</option>
+                <option value="Envio">Envío</option>
+            </select>
+        </div>
+
+        <!-- Tabla -->
+        <div class="table-responsive-sm">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Tipo</th>
+                        <th>Detalle</th>
+                        <th>Monto</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaOperaciones"></tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer fixed-bottom">
+    <div class="container bg-white text-center p-2">
+        © 2026 - Creado por <strong>Iván Oliva</strong>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function () {
+
+    var operaciones = [
+        {
+            fecha: "10/01/2026",
+            tipo: "Deposito",
+            detalle: "Depósito inicial",
+            monto: 50000
+        },
+        {
+            fecha: "12/01/2026",
+            tipo: "Envio",
+            detalle: "Juan Díaz",
+            monto: -5000
+        },
+        {
+            fecha: "14/01/2026",
+            tipo: "Envio",
+            detalle: "Sandra Pérez",
+            monto: -12000
+        },
+        {
+            fecha: "15/01/2026",
+            tipo: "Deposito",
+            detalle: "Recarga bancaria",
+            monto: 20000
+        },
+        {
+            fecha: "17/01/2026",
+            tipo: "Envio",
+            detalle: "Carlos Muñoz",
+            monto: -8000
+        }
+    ];
+
+    function renderTabla(filtro = "") {
+        var tbody = $('#tablaOperaciones');
+        tbody.empty();
+
+        operaciones.forEach(function (op) {
+            if (filtro === "" || op.tipo === filtro) {
+                tbody.append(`
+                    <tr>
+                        <td>${op.fecha}</td>
+                        <td>${op.tipo}</td>
+                        <td>${op.detalle}</td>
+                        <td class="${op.monto < 0 ? 'text-danger' : 'text-success'}">
+                            ${op.monto.toLocaleString()}
+                        </td>
+                    </tr>
+                `);
+            }
+        });
+    }
+
+    $('#filtroTipo').change(function () {
+        renderTabla($(this).val());
+    });
+
+    renderTabla();
+});
+</script>
+
 </body>
 </html>

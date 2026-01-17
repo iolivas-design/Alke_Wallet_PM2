@@ -3,35 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <title>Wallet - Depositar</title>
-  <style>
-    body {
-      padding: 20px;
-      background-image: url("https://get.pxhere.com/photo/wallet-leather-textile-fashion-accessory-zipper-Material-property-font-coin-purse-hair-accessory-denim-1606587.jpg");
-      background-size: 500px;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: #cccccc;
-    }
-
-    .container {
-      max-width: 400px;
-      margin: 0 auto;
-    }
-  </style>
+    <title>Wallet - Menú Principal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body { width: 500px; background-color: #5c8bb9; margin: 0 auto; padding-top: 10px; }
+        .login-card { max-width: 400px; margin: 60px auto; padding: 20px; background: #94b9ff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.363); }
+    </style>
+    <script src="https://kit.fontawesome.com/2e604df97d.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="container bg-light p-3 rounded-3 bg-opacity-75">
-    <h2>Depositar</h2>
-    <form>
-      <div class="form-group">
-        <label for="depositAmount">Monto a depositar:</label>
-        <input type="number" class="form-control" id="depositAmount" placeholder="Enter amount">
-      </div>
-      <button type="submit" class="btn btn-primary">Realizar depósito</button>
-    </form>
-    <a href="menu.html" class="btn btn-secondary">Volver al Menú Principal</a>
-  </div>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand bg-white">
+                <div class="container">
+                    <a class="navbar-brand">
+                    <img src="LogoAlkeWallet.png" alt="AlkeWallet" width="30" height="24">
+                    <strong>Alke Wallet</strong>
+                    </a>                    
+                </div>
+                <a href="menu.html" class="navbar-text text-nowrap font-weight-bold">Volver Menú Principal</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container display: flex">
+        <div class="login-card">
+            <div class="container pb-3 border-bottom">
+                <h2 class="text-center my-5">Depositar</h2>
+                <div id="alertMensaje" class="alert" style="display: none;"></div>
+            </div>
+
+            <div class="container my-3 py-3 border-bottom">
+              
+                <div class="row">
+                  <label for="amount"><strong>Monto: </strong></label>
+                  <input type="number" id="amount">
+                  <button id="depositBtn" class="btn btn-primary">Depositar</button>
+                </div>
+                <div class="container text-center my-3">
+                  <h4>Saldo Actual:</h4>
+                  <p id="balance">0</p>
+                </div>
+              
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer class="footer fixed-bottom">
+        <div class="container bg-white text-center p-3">
+        <span>© 2026 - Creado por  <strong>Iván Oliva</strong></span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        var balance = 0;
+
+        function updateBalance() {
+          $('#balance').text(balance.toFixed(2));
+        }
+
+        $('#depositBtn').click(function() {
+          var amount = parseFloat($('#amount').val());
+          if (!isNaN(amount) && amount > 0) {
+            balance += amount;
+            updateBalance();
+            $('#amount').val('');
+            $('#alertMensaje').addClass('alert-success text-center');
+            $('#alertMensaje').text('¡Depósito exitoso!');
+            $('#alertMensaje').slideDown();
+          } else {
+            $('#alertMensaje').addClass('alert-danger text-center');
+            $('#alertMensaje').text('Monto invalido. Por favor ingrese un número positivo.');
+            $('#alertMensaje').slideDown();
+          }
+        });
+
+      });
+    </script>
+    
+
 </body>
 </html>

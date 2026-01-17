@@ -3,50 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <title>Wallet - Enviar Dinero</title>
-  <style>
-    body {
-      padding: 20px;
-      background-image: url("https://get.pxhere.com/photo/wallet-leather-textile-fashion-accessory-zipper-Material-property-font-coin-purse-hair-accessory-denim-1606587.jpg");
-      background-size: 500px;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: #cccccc;
-    }
+    <title>Wallet - Menú Principal</title>
 
-    .container {
-      max-width: 400px;
-      margin: 0 auto;
-    }
-  </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <style>
+        body {
+            width: 500px;
+            background-color: #5c8bb9;
+            margin: 0 auto;
+            padding-top: 10px;
+        }
+        .login-card {
+            max-width: 400px;
+            margin: 60px auto;
+            padding: 20px;
+            background: #94b9ff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,.36);
+        }
+    </style>
+
+    <script src="https://kit.fontawesome.com/2e604df97d.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="container bg-light p-3 rounded-3 bg-opacity-75">
-    <h2>Enviar Dinero</h2>
-    <form>
-      <div class="form-group">
-        <label for="searchContact">Buscar en la agenda de transferencias:</label>
-        <input type="text" class="form-control" id="searchContact" placeholder="Search contact">
-      </div>
-      <button type="submit" class="btn btn-primary">Agregar nuevo contacto</button>
- <h3>Contactos</h3>
-  <ul id="contactList" class="list-group">
-    <li class="list-group-item">
-      <div class="contact-info">
-        <span class="contact-name">John Doe</span>
-        <span class="contact-details">CBU: 123456789, Alias: john.doe, Banco: ABC Bank</span>
-      </div>
-    </li>
-    <li class="list-group-item">
-      <div class="contact-info">
-        <span class="contact-name">Jane Smith</span>
-        <span class="contact-details">CBU: 987654321, Alias: jane.smith, Banco: XYZ Bank</span>
-      </div>
-    </li>
-      <button type="submit" class="btn btn-primary">Enviar dinero</button>
-    </form>
-    <a href="menu.html" class="btn btn-secondary">Volver al Menú Principal</a>
-  </div>
+
+<header>
+    <div class="container">
+        <nav class="navbar navbar-expand bg-white">
+            <a class="navbar-brand">
+                <img src="LogoAlkeWallet.png" width="30" height="24">
+                <strong>Alke Wallet</strong>
+            </a>
+            <a href="menu.html" class="navbar-text font-weight-bold ml-auto">
+                Volver Menú Principal
+            </a>
+        </nav>
+    </div>
+</header>
+
+<div class="container" style="display:flex;">
+    <div class="login-card">
+
+        <h2 class="text-center my-4">Enviar dinero</h2>
+
+        <div id="alertMensaje" class="alert text-center" style="display:none;"></div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Contacto</label>
+                <select class="form-control" id="contactoTransferencia">
+                    <option value="">Seleccione un contacto</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Monto</label>
+                <input type="number" class="form-control" id="monto" min="1">
+            </div>
+            <div class="form-group col-md-2 d-flex align-items-end">
+                <button id="transferButton" type="button" class="btn btn-success btn-block">
+                    Transferir
+                </button>
+            </div>
+        </div>
+
+        <div class="text-center my-3">
+            <h5>Saldo Actual</h5>
+            <h2 id="saldoActual">45000</h2>
+        </div>
+
+        <hr>
+
+        <h4 class="mb-3">Lista de Contactos</h4>
+
+        <div class="card mb-4">
+            <div class="card-header" style="background-color:#aac6fa;">
+                Agregar contacto
+            </div>
+            <div class="card-body">
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <input type="text" class="form-control" id="apellido" placeholder="Apellido" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <input type="text" class="form-control" id="celular" placeholder="Celular" required>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <input type="email" class="form-control" id="email" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Agregar contacto
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="table-responsive-sm">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Celular</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaContactos"></tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer fixed-bottom">
+    <div class="container bg-white text-center p-2">
+        © 2026 - Creado por <strong>Iván Oliva</strong>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function () {
+
+    var balance = parseFloat($('#saldoActual').text());
+    var contactos = [
+        {
+            nombre: "Juan",
+            apellido: "Díaz",
+            celular: "899883200",
+            email: "juan.diaz@correo.cl"
+        },
+        {
+            nombre: "Sandra",
+            apellido: "Pérez",
+            celular: "853783200",
+            email: "sandra.perez@correo.cl"
+        },
+        {
+            nombre: "Lina",
+            apellido: "Gómez",
+            celular: "89695200",
+            email: "lina.gomez@correo.cl"
+        },
+        {
+            nombre: "Carlos",
+            apellido: "Muñoz",
+            celular: "912345678",
+            email: "carlos.munoz@correo.cl"
+        },
+        {
+            nombre: "María",
+            apellido: "Rojas",
+            celular: "987654321",
+            email: "maria.rojas@correo.cl"
+        }
+    ];
+
+    function updateBalance() {
+        $('#saldoActual').text(balance.toLocaleString());
+    }
+
+    function renderTabla() {
+        var tbody = $('#tablaContactos');
+        tbody.empty();
+
+        contactos.forEach(function (c) {
+            tbody.append(
+                `<tr>
+                    <td>${c.nombre}</td>
+                    <td>${c.apellido}</td>
+                    <td>${c.celular}</td>
+                    <td>${c.email}</td>
+                </tr>`
+            );
+        });
+    }
+
+    function actualizarSelector() {
+        var select = $('#contactoTransferencia');
+        select.empty().append('<option value="">Seleccione un contacto</option>');
+
+        contactos.forEach(function (c, i) {
+            select.append(`<option value="${i}">
+                ${c.nombre} ${c.apellido} (${c.celular})
+            </option>`);
+        });
+    }
+
+    renderTabla();
+    actualizarSelector();
+
+    $('#contactForm').submit(function (e) {
+        e.preventDefault();
+
+        contactos.push({
+            nombre: $('#nombre').val(),
+            apellido: $('#apellido').val(),
+            celular: $('#celular').val(),
+            email: $('#email').val()
+        });
+
+        renderTabla();
+        actualizarSelector();
+        this.reset();
+    });
+
+    $('#transferButton').click(function () {
+
+        $('#alertMensaje').removeClass('alert-success alert-danger').hide();
+
+        var monto = parseFloat($('#monto').val());
+        var index = $('#contactoTransferencia').val();
+
+        if (index === "") {
+            return mostrarError('Debe seleccionar un contacto.');
+        }
+
+        if (isNaN(monto) || monto <= 0) {
+            return mostrarError('Ingrese un monto válido.');
+        }
+
+        if (monto > balance) {
+            return mostrarError('Saldo insuficiente.');
+        }
+
+        balance -= monto;
+        updateBalance();
+        $('#monto').val('');
+
+        $('#alertMensaje')
+            .addClass('alert alert-success')
+            .text('¡Transferencia realizada con éxito!')
+            .slideDown();
+    });
+
+    function mostrarError(mensaje) {
+        $('#alertMensaje')
+            .addClass('alert alert-danger')
+            .text(mensaje)
+            .slideDown();
+    }
+});
+</script>
+
 </body>
 </html>

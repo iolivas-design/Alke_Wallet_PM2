@@ -3,34 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <title>Wallet - Menú Principal</title>
-  <style>
-    body {
-      padding: 20px;
-      background-image: url("https://get.pxhere.com/photo/wallet-leather-textile-fashion-accessory-zipper-Material-property-font-coin-purse-hair-accessory-denim-1606587.jpg");
-      background-size: 500px;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: #cccccc;
-    }
-
-    .container {
-      max-width: 400px;
-      margin: 0 auto;
-    }
-  </style>
+    <title>Wallet - Menú Principal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body { width: 500px; background-color: #5c8bb9; margin: 0 auto; padding-top: 10px; }
+        .login-card { max-width: 400px; margin: 60px auto; padding: 20px; background: #94b9ff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.363); }
+    </style>
+    <script src="https://kit.fontawesome.com/2e604df97d.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="container bg-light p-3 rounded-3 bg-opacity-75">
-    <h2>Menú Principal</h2>
-    <div class="form-group">
-      <label for="balance">Dinero en cuenta:</label>
-      <h3>$60000</h3>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand bg-white">
+                <div class="container">
+                    <a class="navbar-brand">
+                    <img src="LogoAlkeWallet.png" alt="AlkeWallet" width="30" height="24">
+                    <strong>Alke Wallet</strong>
+                    </a>                    
+                </div>
+                <span class="navbar-text text-nowrap font-weight-bold">Menú Principal</span>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container display: flex">
+        <div class="login-card">
+            <div class="container pb-3 border-bottom">
+                <h2 class="text-center my-5">¡Bienvenido!</h2>
+                <h4 id=nombreUsuario class="text-center mb-3">Administrador</h4>
+            </div>
+
+            <div class="container text-center my-3 py-3 border-bottom">
+                <h5>Servicios Disponibles</h5>
+                <div class="row mt-4">
+                    <div class="col col-4">
+                        <div class="container align-items-center mb-2">
+                            <a href="deposit.html" class="fa-regular fa-money-bill-1 fa-2xl" style="color: darkgreen;"></a>
+                        </div>
+                        <div>    
+                            <p><small><strong>Depositar</strong></small></p>
+                        </div>    
+                    </div>
+                    <div class="col col-4">
+                        <div class="container align-items-center mb-2">
+                            <a href="sendmoney.html" class="fa-regular fa-share-from-square fa-2xl" style="color: darkblue;"></a>
+                        </div>
+                        <div>    
+                            <p><small><strong>Enviar</strong></small></p>
+                        </div>    
+                    </div>
+                    <div class="col col-4">
+                        <div class="container align-items-center mb-2">
+                            <a href="transactions.html" class="fa-regular fa-rectangle-list fa-2xl" style="color: rgb(56, 55, 55);"></a>
+                        </div>
+                        <div>    
+                            <p><small><strong>Consulta Operaciones</strong></small></p>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
-    <a href="deposit.html" class="btn btn-primary">Depositar</a>
-    <a href="sendmoney.html" class="btn btn-success">Enviar Dinero</a>
-    <a href="transactions.html" class="btn btn-secondary ">Últimos Movimientos</a>
-  </div>
+
+    <footer class="footer fixed-bottom">
+        <div class="container bg-white text-center p-3">
+        <span>© 2026 - Creado por  <strong>Iván Oliva</strong></span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+
 </body>
 </html>
