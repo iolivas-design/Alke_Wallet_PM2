@@ -2,6 +2,10 @@ Alke Wallet PM2
 
 Alke Wallet PM2 es el proyecto desarrollado para el Módulo 2 del Bootcamp Talento Digital, una aplicación web orientada a la gestión básica de una “wallet” o billetera digital. Permite al usuario registrarse, iniciar sesión, consultar su saldo, agregar contactos, realizar envíos de dinero y visualizar el historial de transacciones.
 
+** CLAVES DE ACCESO **
+CORREO: admin@wallet.com
+PASSWORD: 123456
+
 🧾 Descripción general
 
 Este proyecto implementa una aplicación web de billetera digital (wallet) utilizando tecnologías web estándar:
