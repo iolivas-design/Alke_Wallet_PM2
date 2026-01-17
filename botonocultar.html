@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- HTML -->
+<button id="toggleMonto">Mostrar/Ocultar Monto</button>
+<div id="monto" style="display: none;">
+    <p>Monto: $1000</p>
+</div>
+
+<!-- jQuery -->
+<script>
+    $("#toggleMonto").click(function () {
+        $("#monto").toggle(); // Alternar entre mostrar y ocultar
+    });
+</script>
+</body>
+</html>
