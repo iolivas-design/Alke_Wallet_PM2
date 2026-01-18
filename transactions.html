@@ -8,78 +8,64 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <style>
-        body {
-            width: 500px;
-            background-color: #5c8bb9;
-            margin: 0 auto;
-            padding-top: 10px;
-        }
-        .login-card {
-            max-width: 420px;
-            margin: 60px auto;
-            padding: 20px;
-            background: #94b9ff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,.36);
-        }
+        body { width: 500px; background-color: #5c8bb9; margin: 0 auto; padding-top: 10px; }
+        .login-card { max-width: 420px; margin: 60px auto; padding: 20px; background: #94b9ff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,.36); }
     </style>
 
     <script src="https://kit.fontawesome.com/2e604df97d.js" crossorigin="anonymous"></script>
 </head>
+    
 <body>
 
-<header>
-    <div class="container">
-        <nav class="navbar navbar-expand bg-white">
-            <a class="navbar-brand">
-                <img src="LogoAlkeWallet.png" width="30" height="24">
-                <strong>Alke Wallet</strong>
-            </a>
-            <a href="menu.html" class="navbar-text font-weight-bold ml-auto">
-                Volver Menú Principal
-            </a>
-        </nav>
-    </div>
-</header>
-
-<div class="container" style="display:flex;">
-    <div class="login-card">
-
-        <h3 class="text-center mb-4">Historial de Operaciones</h3>
-
-        <!-- Filtro -->
-        <div class="form-group">
-            <label>Filtrar por tipo</label>
-            <select id="filtroTipo" class="form-control">
-                <option value="">Todas</option>
-                <option value="Deposito">Depósito</option>
-                <option value="Envio">Envío</option>
-            </select>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand bg-white">
+                <a class="navbar-brand">
+                    <img src="LogoAlkeWallet.png" width="30" height="24">
+                    <strong>Alke Wallet</strong>
+                </a>
+                <a href="menu.html" class="navbar-text font-weight-bold ml-auto">
+                    Volver Menú Principal
+                </a>
+            </nav>
         </div>
+    </header>
 
-        <!-- Tabla -->
-        <div class="table-responsive-sm">
-            <table class="table table-bordered table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Fecha</th>
-                        <th>Tipo</th>
-                        <th>Detalle</th>
-                        <th>Monto</th>
-                    </tr>
-                </thead>
-                <tbody id="tablaOperaciones"></tbody>
-            </table>
+    <div class="container" style="display:flex;">
+        <div class="login-card">
+    
+            <h3 class="text-center mb-4">Historial de Operaciones</h3>
+
+            <div class="form-group">
+                <label>Filtrar por tipo</label>
+                <select id="filtroTipo" class="form-control">
+                    <option value="">Todas</option>
+                    <option value="Deposito">Depósito</option>
+                    <option value="Envio">Envío</option>
+                </select>
+            </div>
+    
+            <div class="table-responsive-sm">
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Tipo</th>
+                            <th>Detalle</th>
+                            <th>Monto</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaOperaciones"></tbody>
+                </table>
+            </div>
         </div>
-
     </div>
-</div>
-
-<footer class="footer fixed-bottom">
-    <div class="container bg-white text-center p-2">
-        © 2026 - Creado por <strong>Iván Oliva</strong>
-    </div>
-</footer>
+    
+    <footer class="footer fixed-bottom">
+        <div class="container bg-white text-center p-2">
+            © 2026 - Creado por <strong>Iván Oliva</strong>
+        </div>
+    </footer>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
